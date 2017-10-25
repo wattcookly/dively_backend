@@ -1,9 +1,23 @@
-app:
-  restart: always
-  env_file:
-    - prod.env
-  build: .
+nginx:
+  build: ./nginx/
   ports:
     - "80:80"
-  command:
-    "gunicorn -w 4 -b unix:/var/run/dively.sock dively.wsgi:application"
+  links:
+    - app:app
+  volumes_from:
+    - app_data
+
+app:
+  restart: always
+  env_file: 
+    - prod.env
+  build: .
+  volumes_from:
+    - app_data
+  command: gunicorn dively.wsgi:application -w 4 --timeout 300 -b unix:/var/run/dively.sock
+
+app_data:
+  image: alpine:3.4
+  volumes:
+    - /var/run
+  command: "true"
