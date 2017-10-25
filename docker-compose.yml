@@ -6,4 +6,4 @@ app:
   ports:
     - "80:80"
   command:
-    "gunicorn -w 4 -b unix:/var/run/cookly.sock cookly.wsgi:application"
+    "gunicorn -w 4 -b unix:/var/run/dively.sock dively.wsgi:application"
