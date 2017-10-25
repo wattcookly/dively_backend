@@ -130,4 +130,6 @@ STATIC_ROOT = '/var/www/dively.me/static/'
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'localhost:8080',
+    'dively-vue.s3-website-ap-southeast-1.amazonaws.com',
+    '*.amazonaws.com',
 )
