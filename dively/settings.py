@@ -124,6 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/dively.me/static/'
 
 # =================== CORS ========================
 CORS_ORIGIN_ALLOW_ALL = False
