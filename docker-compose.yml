@@ -1,0 +1,9 @@
+app:
+  restart: always
+  env_file:
+    - prod.env
+  build: .
+  ports:
+    - "80:80"
+  command:
+    "gunicorn -w 4 -b unix:/var/run/cookly.sock cookly.wsgi:application"
